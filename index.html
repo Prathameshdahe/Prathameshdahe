@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prathamesh's Dancing Pikachu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="profile-section">
+        <h2>Prathamesh's Contributions</h2>
+        <div class="graph-container">
+            <!-- The Pikachu Sprite -->
+            <img class="pikachu" src="assets/pikachu.png" alt="Pikachu">
+            <!-- Contribution Grid -->
+            <div class="calendar-grid" id="calendar"></div>
+        </div>
+    </div>
+
+    <script>
+        // Generate GitHub-like contribution grid
+        const calendar = document.getElementById('calendar');
+        // Colors from GitHub dark mode
+        const levels = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
+        
+        // 53 columns x 7 days
+        for (let i = 0; i < 53 * 7; i++) {
+            const square = document.createElement('div');
+            square.className = 'day';
+            const random = Math.random();
+            let level = 0;
+            if (random > 0.6) level = 1;
+            if (random > 0.8) level = 2;
+            if (random > 0.9) level = 3;
+            if (random > 0.95) level = 4;
+            
+            square.style.backgroundColor = levels[level];
+            calendar.appendChild(square);
+        }
+    </script>
+</body>
+</html>

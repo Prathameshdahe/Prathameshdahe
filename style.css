@@ -1,0 +1,72 @@
+body {
+    background-color: #0d1117; /* GitHub Dark Mode bg */
+    color: #c9d1d9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.profile-section {
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 20px;
+    background-color: #0d1117;
+    margin-top: 50px;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    margin-top: 0;
+    padding-left: 5px;
+}
+
+.graph-container {
+    position: relative;
+    width: max-content;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(53, 11px);
+    grid-template-rows: repeat(7, 11px);
+    gap: 3px;
+}
+
+.day {
+    width: 11px;
+    height: 11px;
+    border-radius: 2px;
+}
+
+.pikachu {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    top: -46px; /* Sits right on top of the graph */
+    left: 0;
+    z-index: 10;
+    image-rendering: crisp-edges; /* Keeps pixel art sharp */
+    animation: jumpAround 6s infinite linear;
+}
+
+@keyframes jumpAround {
+    0% { transform: translate(0, 0) scaleX(1); }
+    10% { transform: translate(80px, -40px) scaleX(1); }
+    15% { transform: translate(120px, 0px) scaleX(1); }
+    25% { transform: translate(250px, -50px) scaleX(1); }
+    30% { transform: translate(320px, 0px) scaleX(1); }
+    40% { transform: translate(480px, -40px) scaleX(1); }
+    45% { transform: translate(550px, 0px) scaleX(1); }
+    50% { transform: translate(620px, -30px) scaleX(-1); } /* Hit the end, flip and turn back */
+    60% { transform: translate(480px, -50px) scaleX(-1); }
+    65% { transform: translate(400px, 0px) scaleX(-1); }
+    75% { transform: translate(250px, -40px) scaleX(-1); }
+    80% { transform: translate(180px, 0px) scaleX(-1); }
+    90% { transform: translate(80px, -30px) scaleX(-1); }
+    100% { transform: translate(0, 0) scaleX(1); } /* Back to start */
+}
